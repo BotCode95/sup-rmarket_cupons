@@ -22,6 +22,7 @@ const cupon_1 = __importDefault(require("../routes/cupon"));
 const user_1 = __importDefault(require("../routes/user"));
 const auth_1 = __importDefault(require("../routes/auth"));
 const role_1 = __importDefault(require("../routes/role"));
+const pay_1 = __importDefault(require("../routes/pay"));
 class Server {
     constructor() {
         this.apiPaths = {
@@ -30,7 +31,8 @@ class Server {
             cuponPath: '/api/cupons',
             authPath: '/api/auth',
             rolePath: '/api/role',
-            userPath: '/api/users'
+            userPath: '/api/users',
+            payPath: '/api/pays'
         };
         this.app = (0, express_1.default)();
         this.port = process.env.NODE_ENV === 'dev' ? process.env.PORT_DEVELOPMENT : process.env.PORT;
@@ -54,6 +56,7 @@ class Server {
         this.app.use(this.apiPaths.authPath, auth_1.default);
         this.app.use(this.apiPaths.userPath, user_1.default);
         this.app.use(this.apiPaths.rolePath, role_1.default);
+        this.app.use(this.apiPaths.payPath, pay_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

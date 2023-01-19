@@ -8,6 +8,7 @@ import cuponRoutes from '../routes/cupon'
 import userRoutes from '../routes/user'
 import authRoutes from '../routes/auth'
 import roleRoutes from '../routes/role'
+import paysRoutes from '../routes/pay'
 export class Server {
 	private app: Application
 	private port: string | undefined
@@ -17,7 +18,8 @@ export class Server {
 		cuponPath: '/api/cupons',
 		authPath: '/api/auth',
 		rolePath: '/api/role',
-		userPath: '/api/users'
+		userPath: '/api/users',
+		payPath: '/api/pays'
 	}
 	constructor() {
 		this.app = express()
@@ -44,6 +46,7 @@ export class Server {
 		this.app.use(this.apiPaths.authPath, authRoutes)
 		this.app.use(this.apiPaths.userPath, userRoutes)
 		this.app.use(this.apiPaths.rolePath, roleRoutes)
+		this.app.use(this.apiPaths.payPath, paysRoutes)
 	}
 
 	listen() {

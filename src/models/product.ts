@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 
 // 1. Create an interface representing a document in MongoDB.
-interface IProduct {
+export interface IProduct {
 	name: string
 	description: string
 	price_unit: number
